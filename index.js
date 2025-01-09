@@ -2,6 +2,7 @@
 // Initialize game state
 let currentPlayer = "X";
 let board = ["", "", "", "", "", "", "", "", ""]; // Empty board
+let gameOver = false; // Added this flag to track game state
 
 // Winning combinations
 const winningCombinations = [
@@ -28,11 +29,13 @@ console.log("Winning Combinations:", winningCombinations);
 
 // Handle cell clicks
 function handleCellClick(event) {
+  if (gameOver) return; // Prevents moves if the game is over
+
   const cell = event.target;
   const cellIndex = Array.from(cells).indexOf(cell);
 
   // Check if the cell is already filled or if the game is over
-  if (board[cellIndex] !== "" || message.innerText.includes("Winner")) {
+  if (board[cellIndex] !== "") {
     return; // Ignores clicks on filled cells or after game over
   }
   // Update the cell and the board
@@ -42,8 +45,10 @@ function handleCellClick(event) {
   //  Check for a winner or draw
   if (checkWinner()) {
     message.innerText = `Player ${currentPlayer} Wins!`;
+    gameOver = true; // Set the gameOver flag to true
   } else if (board.every((cell) => cell !== "")) {
     message.innerText = "It's a Draw!";
+    gameOver = true; // Set the gameOver flag to true
   } else {
     // Switch turns
     currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -90,4 +95,7 @@ function restartGame() {
 
   // Reset the game status message
   message.innerText = `Player ${currentPlayer}'s Turn`;
+
+  // Reset the gameOver flag
+  gameOver = false;
 }
