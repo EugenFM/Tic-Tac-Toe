@@ -1,4 +1,3 @@
-// Pseudo-code
 // Initialize game state
 let currentPlayer = "X";
 let board = ["", "", "", "", "", "", "", "", ""]; // Empty board

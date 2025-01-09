@@ -1,7 +1,24 @@
+/* General Styles */
+body {
+  background-color: rgb(248, 246, 240);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+
 #board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   gap: 5px;
+}
+
+#message {
+  color: rgb(23, 23, 150);
+  font-size: large;
 }
 
 .cell {
@@ -16,21 +33,125 @@
   font-size: 24px;
 }
 
-/* .highlight {
-  resize: both;
-  background-color: yellow;
-  font-size: larger;
-  font-weight: bold;
-  color: red;
-} */
-
 .highlight {
-  background-color: #ffeb3b; /* Bright yellow background */
-  border: 3px solid #f44336; /* Red border */
-  transform: scale(1.2); /* Slightly larger size */
-  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.5); /* Glow effect */
+  background-color: #ffeb3b;
+  border: 3px solid #f44336;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.5);
 }
 
 #message {
   margin: 0 0 15px;
+}
+
+#restart {
+  font-size: 22px;
+  margin-top: 25px;
+  background: #e2f8e3;
+  border-radius: 4px;
+}
+
+/* Responsive Styles */
+
+/* Phones (max-width: 576px) */
+@media (max-width: 576px) {
+  #board {
+    grid-template-columns: repeat(3, 80px); /* Smaller cells */
+    gap: 3px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 18px; /* Smaller text */
+  }
+
+  #message {
+    font-size: medium; /* Adjust text size */
+  }
+
+  #restart {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+/* Tablets (min-width: 577px and max-width: 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  #board {
+    grid-template-columns: repeat(3, 90px);
+    gap: 4px;
+  }
+
+  .cell {
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
+  }
+
+  #message {
+    font-size: larger;
+  }
+
+  #restart {
+    font-size: 22px;
+    padding: 12px 20px;
+  }
+}
+
+/* Larger Devices (min-width: 992px) */
+@media (min-width: 769px) {
+  #game {
+    padding-top: 1rem;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 100px); /* Larger cells */
+    gap: 8px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .cell {
+    width: 100px;
+    height: 100px;
+    font-size: 26px; /* Larger text */
+  }
+
+  #message {
+    font-size: x-large; /* Larger message text */
+  }
+
+  #restart {
+    font-size: 24px;
+    padding: 14px 22px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #game {
+    padding-top: 0.5rem;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 130px); /* Larger cells */
+    gap: 10px;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  .cell {
+    width: 120px;
+    height: 120px;
+    font-size: 32px; /* Larger text */
+  }
+
+  #message {
+    font-size: xx-large; /* Larger message text */
+  }
+
+  #restart {
+    font-size: 26px;
+    padding: 16px 24px;
+  }
 }
