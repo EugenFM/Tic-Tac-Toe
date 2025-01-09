@@ -58,8 +58,20 @@ cells.forEach((cell) => {
 
 // Check for Winner
 function checkWinner() {
-  return winningCombinations.some((combination) => {
+  const winningCombination = winningCombinations.find((combination) => {
     return combination.every((index) => board[index] === currentPlayer);
+  });
+
+  if (winningCombination) {
+    highlightWinningCells(winningCombination);
+    return true;
+  }
+  return false;
+}
+
+function highlightWinningCells(indices) {
+  indices.forEach((index) => {
+    cells[index].classList.add("highlight");
   });
 }
 
@@ -69,7 +81,10 @@ function restartGame() {
   //  Reset the board array
   board.fill("");
   // Clear all cells fields
-  cells.forEach((cell) => (cell.innerText = ""));
+  cells.forEach((cell) => {
+    cell.innerText = "";
+    cell.classList.remove("highlight");
+  });
   // Reset the current player
   currentPlayer = "X";
 

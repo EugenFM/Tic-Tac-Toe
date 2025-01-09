@@ -16,6 +16,21 @@
   font-size: 24px;
 }
 
+/* .highlight {
+  resize: both;
+  background-color: yellow;
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+} */
+
+.highlight {
+  background-color: #ffeb3b; /* Bright yellow background */
+  border: 3px solid #f44336; /* Red border */
+  transform: scale(1.2); /* Slightly larger size */
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.5); /* Glow effect */
+}
+
 #message {
   margin: 0 0 15px;
 }
